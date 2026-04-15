@@ -12,13 +12,13 @@ public class RecipeAppApplication {
 
 
 		// Uncomment to run scraper and create XML on startup
-		DataInitializer init = context.getBean(DataInitializer.class);
-		try {
-			init.scrapeAndSaveData();
-			System.out.println("SUCCESS: XML file created with scraped recipes!");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		DataInitializer init = context.getBean(DataInitializer.class);
+//		try {
+//			init.scrapeAndSaveData();
+//			System.out.println("SUCCESS: XML file created with scraped recipes!");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 
 
