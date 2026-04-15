@@ -12,4 +12,9 @@ public class Recipe {
         this.cuisines = cuisines;
         this.difficulty = difficulty;
     }
+
+    // needed for 3rd task
+    public String getTitle() { return title; }
+    public List<String> getCuisines() { return cuisines; }
+    public String getDifficulty() { return difficulty; }
 }

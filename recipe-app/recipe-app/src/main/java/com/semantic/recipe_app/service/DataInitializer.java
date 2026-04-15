@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class DataInitializer {
@@ -27,6 +24,7 @@ public class DataInitializer {
 
     public void scrapeAndSaveData() throws IOException {
         List<Recipe> recipes = new ArrayList<>();
+        Set<String> seenTitles = new HashSet<>();
 
         // 1. Scrape titles from BBC Good Food
         Document doc = Jsoup.connect("https://www.bbcgoodfood.com/recipes/collection/budget-autumn").get();
@@ -36,7 +34,13 @@ public class DataInitializer {
         for (Element titleElement : titles) {
             if (recipes.size() >= 20) break;
 
-            String title = titleElement.text();
+            String title = titleElement.text().trim();
+            if (title.isEmpty() || title.contains("premium piece of content") ||
+                    seenTitles.contains(title)) {
+                continue;
+            }
+
+            seenTitles.add(title);
 
             // pick 2 distinct cuisines randomly
             String c1 = CUISINES.get(random.nextInt(CUISINES.size()));
