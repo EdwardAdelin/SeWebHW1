@@ -66,7 +66,7 @@ public class DataInitializer {
 
         StringBuilder xml = new StringBuilder();
         xml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-        xml.append("<data>\n");
+        xml.append("<data xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"schema.xsd\">");
 
         // Save User
         xml.append("  <users>\n");

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data>
-  <users>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">  <users>
     <user>
       <name>John</name>
       <surname>Doe</surname>
@@ -12,8 +11,8 @@
     <recipe>
       <title></title>
       <cuisines>
-        <cuisine>French</cuisine>
         <cuisine>Mexican</cuisine>
+        <cuisine>French</cuisine>
       </cuisines>
       <difficulty>Intermediate</difficulty>
     </recipe>
@@ -21,38 +20,86 @@
       <title>Creamy pumpkin pasta</title>
       <cuisines>
         <cuisine>Asian</cuisine>
-        <cuisine>Mexican</cuisine>
+        <cuisine>Indian</cuisine>
       </cuisines>
-      <difficulty>Advanced</difficulty>
+      <difficulty>Beginner</difficulty>
     </recipe>
     <recipe>
       <title>Creamy pumpkin pasta</title>
       <cuisines>
+        <cuisine>Indian</cuisine>
+        <cuisine>Mediterranean</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title></title>
+      <cuisines>
         <cuisine>French</cuisine>
-        <cuisine>Asian</cuisine>
+        <cuisine>Indian</cuisine>
+      </cuisines>
+      <difficulty>Beginner</difficulty>
+    </recipe>
+    <recipe>
+      <title>Sausage, mustard &amp; apple hash</title>
+      <cuisines>
+        <cuisine>Indian</cuisine>
+        <cuisine>French</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Sausage, mustard &amp; apple hash</title>
+      <cuisines>
+        <cuisine>Indian</cuisine>
+        <cuisine>Italian</cuisine>
       </cuisines>
       <difficulty>Beginner</difficulty>
     </recipe>
     <recipe>
       <title></title>
       <cuisines>
-        <cuisine>Italian</cuisine>
+        <cuisine>Asian</cuisine>
+        <cuisine>French</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Mushroom stroganoff</title>
+      <cuisines>
+        <cuisine>Mediterranean</cuisine>
+        <cuisine>Asian</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Mushroom stroganoff</title>
+      <cuisines>
+        <cuisine>Indian</cuisine>
+        <cuisine>French</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title></title>
+      <cuisines>
+        <cuisine>Asian</cuisine>
         <cuisine>Mexican</cuisine>
       </cuisines>
-      <difficulty>Beginner</difficulty>
+      <difficulty>Advanced</difficulty>
     </recipe>
     <recipe>
-      <title>Sausage, mustard &amp; apple hash</title>
+      <title>App onlyButternut squash &amp; white bean tagliatelle. This is a premium piece of content available to subscribed users.</title>
       <cuisines>
-        <cuisine>Italian</cuisine>
+        <cuisine>Mexican</cuisine>
         <cuisine>French</cuisine>
       </cuisines>
-      <difficulty>Beginner</difficulty>
+      <difficulty>Advanced</difficulty>
     </recipe>
     <recipe>
-      <title>Sausage, mustard &amp; apple hash</title>
+      <title>App onlyButternut squash &amp; white bean tagliatelle. This is a premium piece of content available to subscribed users.</title>
       <cuisines>
-        <cuisine>French</cuisine>
+        <cuisine>Italian</cuisine>
         <cuisine>Indian</cuisine>
       </cuisines>
       <difficulty>Intermediate</difficulty>
@@ -61,62 +108,6 @@
       <title></title>
       <cuisines>
         <cuisine>Italian</cuisine>
-        <cuisine>Mediterranean</cuisine>
-      </cuisines>
-      <difficulty>Intermediate</difficulty>
-    </recipe>
-    <recipe>
-      <title>Mushroom stroganoff</title>
-      <cuisines>
-        <cuisine>Asian</cuisine>
-        <cuisine>French</cuisine>
-      </cuisines>
-      <difficulty>Beginner</difficulty>
-    </recipe>
-    <recipe>
-      <title>Mushroom stroganoff</title>
-      <cuisines>
-        <cuisine>Italian</cuisine>
-        <cuisine>French</cuisine>
-      </cuisines>
-      <difficulty>Intermediate</difficulty>
-    </recipe>
-    <recipe>
-      <title></title>
-      <cuisines>
-        <cuisine>Mediterranean</cuisine>
-        <cuisine>Asian</cuisine>
-      </cuisines>
-      <difficulty>Beginner</difficulty>
-    </recipe>
-    <recipe>
-      <title>App onlyButternut squash &amp; white bean tagliatelle. This is a premium piece of content available to subscribed users.</title>
-      <cuisines>
-        <cuisine>Mexican</cuisine>
-        <cuisine>Italian</cuisine>
-      </cuisines>
-      <difficulty>Intermediate</difficulty>
-    </recipe>
-    <recipe>
-      <title>App onlyButternut squash &amp; white bean tagliatelle. This is a premium piece of content available to subscribed users.</title>
-      <cuisines>
-        <cuisine>Asian</cuisine>
-        <cuisine>French</cuisine>
-      </cuisines>
-      <difficulty>Advanced</difficulty>
-    </recipe>
-    <recipe>
-      <title></title>
-      <cuisines>
-        <cuisine>Italian</cuisine>
-        <cuisine>Asian</cuisine>
-      </cuisines>
-      <difficulty>Intermediate</difficulty>
-    </recipe>
-    <recipe>
-      <title>Beetroot &amp; feta pasta</title>
-      <cuisines>
-        <cuisine>Mediterranean</cuisine>
         <cuisine>Indian</cuisine>
       </cuisines>
       <difficulty>Beginner</difficulty>
@@ -125,39 +116,47 @@
       <title>Beetroot &amp; feta pasta</title>
       <cuisines>
         <cuisine>Mexican</cuisine>
+        <cuisine>Indian</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Beetroot &amp; feta pasta</title>
+      <cuisines>
+        <cuisine>Indian</cuisine>
         <cuisine>Italian</cuisine>
       </cuisines>
-      <difficulty>Beginner</difficulty>
+      <difficulty>Advanced</difficulty>
     </recipe>
     <recipe>
       <title></title>
       <cuisines>
-        <cuisine>Italian</cuisine>
-        <cuisine>French</cuisine>
+        <cuisine>Mexican</cuisine>
+        <cuisine>Indian</cuisine>
       </cuisines>
       <difficulty>Advanced</difficulty>
     </recipe>
     <recipe>
       <title>Pork &amp; apple burgers</title>
       <cuisines>
-        <cuisine>Indian</cuisine>
         <cuisine>Asian</cuisine>
+        <cuisine>Mediterranean</cuisine>
       </cuisines>
       <difficulty>Intermediate</difficulty>
     </recipe>
     <recipe>
       <title>Pork &amp; apple burgers</title>
       <cuisines>
-        <cuisine>Mexican</cuisine>
         <cuisine>French</cuisine>
+        <cuisine>Mexican</cuisine>
       </cuisines>
       <difficulty>Intermediate</difficulty>
     </recipe>
     <recipe>
       <title></title>
       <cuisines>
-        <cuisine>French</cuisine>
-        <cuisine>Italian</cuisine>
+        <cuisine>Indian</cuisine>
+        <cuisine>Mexican</cuisine>
       </cuisines>
       <difficulty>Advanced</difficulty>
     </recipe>
@@ -165,9 +164,9 @@
       <title>Mushroom soup</title>
       <cuisines>
         <cuisine>Mediterranean</cuisine>
-        <cuisine>Mexican</cuisine>
+        <cuisine>Indian</cuisine>
       </cuisines>
-      <difficulty>Beginner</difficulty>
+      <difficulty>Advanced</difficulty>
     </recipe>
   </recipes>
 </data>
