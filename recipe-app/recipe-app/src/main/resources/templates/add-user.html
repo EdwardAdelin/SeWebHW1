@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add User</title>
+    </head>
+<body>
+    <h2>Add New User</h2>
+    <form action="#" th:action="@{/add-user}" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required>
+        </div>
+        <div>
+            <label for="skillLevel">Cooking Skill Level:</label>
+            <select id="skillLevel" name="skillLevel" required>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+        </div>
+        <div>
+            <label for="preferredCuisine">Preferred Cuisine Type:</label>
+            <input type="text" id="preferredCuisine" name="preferredCuisine" required>
+        </div>
+        <button type="submit">Save User</button>
+    </form>
+</body>
+</html>

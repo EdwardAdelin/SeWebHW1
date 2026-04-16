@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="schema.xsd">
+<?xml version="1.0" encoding="UTF-8"?><data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
    <users>
       <user>
          <name>John</name>
@@ -179,4 +177,4 @@
          <difficulty>Intermediate</difficulty>
       </recipe>
    </recipes>
-</data>
+<user><name>Alice</name><surname>Smith</surname><skillLevel>Beginner</skillLevel><preferredCuisine>Asian</preferredCuisine></user></data>

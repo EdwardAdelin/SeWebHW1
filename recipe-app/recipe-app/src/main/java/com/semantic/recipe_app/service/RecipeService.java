@@ -13,6 +13,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
+import java.util.ArrayList; // Just in case it's missing
+import org.w3c.dom.Element; // Just in case it's missing
+
 @Service
 public class RecipeService {
 
@@ -109,4 +115,118 @@ public class RecipeService {
             e.printStackTrace();
         }
     }
+
+// Task 5: Add user to XML
+    public void addUserToXml(String name, String surname, String skillLevel, String preferredCuisine) {
+    try {
+        // Pointing to your specific XML file location
+        File xmlFile = new File("src/main/resources/xml/data.xml");
+        
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc = docBuilder.parse(xmlFile);
+
+        // Get the root element (I am assuming it's <data> or <app> based on your single file setup)
+        Element rootElement = doc.getDocumentElement();
+
+        // Create new <user> element
+        Element user = doc.createElement("user");
+
+        // Create and append <name>
+        Element nameElement = doc.createElement("name");
+        nameElement.setTextContent(name);
+        user.appendChild(nameElement);
+
+        // Create and append <surname>
+        Element surnameElement = doc.createElement("surname");
+        surnameElement.setTextContent(surname);
+        user.appendChild(surnameElement);
+
+        // Create and append <skillLevel>
+        Element skillElement = doc.createElement("skillLevel");
+        skillElement.setTextContent(skillLevel);
+        user.appendChild(skillElement);
+
+        // Create and append <preferredCuisine>
+        Element cuisineElement = doc.createElement("preferredCuisine");
+        cuisineElement.setTextContent(preferredCuisine);
+        user.appendChild(cuisineElement);
+
+        // Append the whole user to the root of the XML
+        // Note: If you have a specific <users> tag grouping them inside data.xml, 
+        // you would use doc.getElementsByTagName("users").item(0).appendChild(user) instead.
+        rootElement.appendChild(user);
+
+        // Save the updated document back to the file
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(xmlFile);
+        transformer.transform(source, result);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+//task 6: Recommend recipes based on user's skill level
+    public List<Recipe> recommendBySkillLevel() {
+    List<Recipe> recommendedRecipes = new ArrayList<>();
+    try {
+        File xmlFile = new File("src/main/resources/xml/data.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(xmlFile);
+        doc.getDocumentElement().normalize();
+
+        XPath xPath = XPathFactory.newInstance().newXPath();
+
+        // 1. Get the first user's skill level using XPath
+        // //user[1] selects the first user node in the entire document
+        String skillExpression = "//user[1]/skillLevel/text()";
+        String userSkill = (String) xPath.compile(skillExpression).evaluate(doc, XPathConstants.STRING);
+
+        if (userSkill == null || userSkill.isEmpty()) {
+            return recommendedRecipes; // No user found
+        }
+
+        // 2. Get recipes matching that skill level using XPath
+        // Matches <recipe> nodes where the <difficulty> child equals the userSkill
+        String recipeExpression = "//recipe[difficulty='" + userSkill + "']";
+        NodeList recipeNodes = (NodeList) xPath.compile(recipeExpression).evaluate(doc, XPathConstants.NODESET);
+
+// 3. Convert XML nodes to Java Objects
+        for (int i = 0; i < recipeNodes.getLength(); i++) {
+            Node node = recipeNodes.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element) node;
+                
+                String title = "";
+                String difficulty = "";
+                List<String> cuisines = new ArrayList<>(); // Empty list to satisfy your constructor
+                
+                // Fetch the title
+                Node titleNode = element.getElementsByTagName("title").item(0);
+                if (titleNode != null) {
+                    title = titleNode.getTextContent();
+                }
+                
+                // Fetch the difficulty
+                Node diffNode = element.getElementsByTagName("difficulty").item(0);
+                if (diffNode != null) {
+                    difficulty = diffNode.getTextContent(); 
+                }
+
+                // Use the constructor defined in your Recipe.java model
+                Recipe recipe = new Recipe(title, cuisines, difficulty);
+                
+                recommendedRecipes.add(recipe);
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return recommendedRecipes;
+}
+
 }
