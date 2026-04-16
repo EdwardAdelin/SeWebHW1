@@ -22,7 +22,7 @@ import org.w3c.dom.Element; // Just in case it's missing
 @Service
 public class RecipeService {
 
-    private final String XML_PATH = "recipe-app/src/main/resources/xml/data.xml";
+    private final String XML_PATH = "src/main/resources/xml/data.xml";
 
     public List<Recipe> getAllRecipesFromXml() {
         List<Recipe> recipes = new ArrayList<>();
@@ -195,7 +195,7 @@ public class RecipeService {
         String recipeExpression = "//recipe[difficulty='" + userSkill + "']";
         NodeList recipeNodes = (NodeList) xPath.compile(recipeExpression).evaluate(doc, XPathConstants.NODESET);
 
-// 3. Convert XML nodes to Java Objects
+        // 3. Convert XML nodes to Java Objects
         for (int i = 0; i < recipeNodes.getLength(); i++) {
             Node node = recipeNodes.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -220,6 +220,60 @@ public class RecipeService {
                 // Use the constructor defined in your Recipe.java model
                 Recipe recipe = new Recipe(title, cuisines, difficulty);
                 
+                recommendedRecipes.add(recipe);
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return recommendedRecipes;
+}
+
+//task 7: Recommend recipes based on user's skill level AND preferred cuisine
+public List<Recipe> recommendBySkillAndCuisine() {
+    List<Recipe> recommendedRecipes = new ArrayList<>();
+    try {
+        File xmlFile = new File("src/main/resources/xml/data.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(xmlFile);
+        doc.getDocumentElement().normalize();
+
+        XPath xPath = XPathFactory.newInstance().newXPath();
+
+        // 1. Get the first user's skill AND cuisine
+        String skillExpression = "//user[1]/skillLevel/text()";
+        String cuisineExpression = "//user[1]/preferredCuisine/text()";
+        
+        String userSkill = (String) xPath.compile(skillExpression).evaluate(doc, XPathConstants.STRING);
+        String userCuisine = (String) xPath.compile(cuisineExpression).evaluate(doc, XPathConstants.STRING);
+
+        if (userSkill == null || userSkill.isEmpty() || userCuisine == null || userCuisine.isEmpty()) {
+            return recommendedRecipes; // Missing user data
+        }
+
+        // 2. Get recipes matching BOTH skill and at least one of their cuisines
+        // This XPath checks if difficulty matches AND if any <cuisine> child of <cuisines> matches
+        String recipeExpression = "//recipe[difficulty='" + userSkill + "' and cuisines/cuisine='" + userCuisine + "']";
+        NodeList recipeNodes = (NodeList) xPath.compile(recipeExpression).evaluate(doc, XPathConstants.NODESET);
+
+        // 3. Convert XML nodes to Java Objects
+        for (int i = 0; i < recipeNodes.getLength(); i++) {
+            Node node = recipeNodes.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element) node;
+                
+                String title = "";
+                String difficulty = "";
+                List<String> cuisines = new ArrayList<>(); // Empty list for constructor
+                
+                Node titleNode = element.getElementsByTagName("title").item(0);
+                if (titleNode != null) title = titleNode.getTextContent();
+                
+                Node diffNode = element.getElementsByTagName("difficulty").item(0);
+                if (diffNode != null) difficulty = diffNode.getTextContent(); 
+
+                Recipe recipe = new Recipe(title, cuisines, difficulty);
                 recommendedRecipes.add(recipe);
             }
         }

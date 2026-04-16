@@ -15,7 +15,7 @@ import java.util.*;
 @Service
 public class DataInitializer {
 
-    private final String XML_PATH = "recipe-app/src/main/resources/xml/data.xml";
+    private final String XML_PATH = "src/main/resources/xml/data.xml";
     private final Random random = new Random();
 
     // Predefined values for random assignment

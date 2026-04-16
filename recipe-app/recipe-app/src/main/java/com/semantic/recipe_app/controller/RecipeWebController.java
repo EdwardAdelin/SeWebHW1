@@ -74,4 +74,14 @@ public class RecipeWebController {
         
         return "recommendations"; // Maps to recommendations.html
     }
+
+// Task 7: Recommend recipes based on user's skill level AND preferred cuisine
+    @GetMapping("/recommendations/advanced")
+    public String showAdvancedRecommendations(Model model) {
+        List<Recipe> recipes = recipeService.recommendBySkillAndCuisine();
+        model.addAttribute("recommendedRecipes", recipes);
+        
+        // We will create a new HTML file for this to keep things organized
+        return "recommendations-advanced"; 
+    }
 }

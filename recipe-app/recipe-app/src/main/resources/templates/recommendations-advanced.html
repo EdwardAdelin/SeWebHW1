@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Advanced Recommendations</title>
+</head>
+<body>
+    <h2>Recommendations based on First User's Skill Level AND Cuisine</h2>
+    
+    <div th:if="${#lists.isEmpty(recommendedRecipes)}">
+        <p>No recipes found matching both the user's skill level and preferred cuisine.</p>
+    </div>
+
+    <ul th:if="${not #lists.isEmpty(recommendedRecipes)}">
+        <li th:each="recipe : ${recommendedRecipes}">
+            <strong th:text="${recipe.title}">Recipe Title</strong> 
+            (<span th:text="${recipe.difficulty}">Difficulty</span>)
+        </li>
+    </ul>
+
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

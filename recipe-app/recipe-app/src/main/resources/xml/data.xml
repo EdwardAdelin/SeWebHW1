@@ -1,180 +1,172 @@
-<?xml version="1.0" encoding="UTF-8"?><data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
-   <users>
-      <user>
-         <name>John</name>
-         <surname>Doe</surname>
-         <skill>Beginner</skill>
-         <preferredCuisine>Italian</preferredCuisine>
-      </user>
-   </users>
-   <recipes>
-      <recipe>
-         <title>Creamy pumpkin pasta</title>
-         <cuisines>
-            <cuisine>Italian</cuisine>
-            <cuisine>Indian</cuisine>
-         </cuisines>
-         <difficulty>Advanced</difficulty>
-      </recipe>
-      <recipe>
-         <title>Sausage, mustard &amp; apple hash</title>
-         <cuisines>
-            <cuisine>French</cuisine>
-            <cuisine>Asian</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-      <recipe>
-         <title>Mushroom stroganoff</title>
-         <cuisines>
-            <cuisine>French</cuisine>
-            <cuisine>Mexican</cuisine>
-         </cuisines>
-         <difficulty>Beginner</difficulty>
-      </recipe>
-      <recipe>
-         <title>Beetroot &amp; feta pasta</title>
-         <cuisines>
-            <cuisine>Asian</cuisine>
-            <cuisine>Mediterranean</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-      <recipe>
-         <title>Pork &amp; apple burgers</title>
-         <cuisines>
-            <cuisine>Mediterranean</cuisine>
-            <cuisine>Italian</cuisine>
-         </cuisines>
-         <difficulty>Advanced</difficulty>
-      </recipe>
-      <recipe>
-         <title>Mushroom soup</title>
-         <cuisines>
-            <cuisine>Indian</cuisine>
-            <cuisine>French</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-      <recipe>
-         <title>Squash &amp; halloumi flatbreads with sweet chilli beetroot jam</title>
-         <cuisines>
-            <cuisine>Mexican</cuisine>
-            <cuisine>Indian</cuisine>
-         </cuisines>
-         <difficulty>Beginner</difficulty>
-      </recipe>
-      <recipe>
-         <title>Simple squash risotto</title>
-         <cuisines>
-            <cuisine>Mediterranean</cuisine>
-            <cuisine>Italian</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-      <recipe>
-         <title>Slow cooker spiced root &amp; lentil casserole</title>
-         <cuisines>
-            <cuisine>French</cuisine>
-            <cuisine>Indian</cuisine>
-         </cuisines>
-         <difficulty>Beginner</difficulty>
-      </recipe>
-      <recipe>
-         <title>Squash &amp; spinach fusilli with pecans</title>
-         <cuisines>
-            <cuisine>Mexican</cuisine>
-            <cuisine>French</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-      <recipe>
-         <title>Easy vegetable curry</title>
-         <cuisines>
-            <cuisine>Italian</cuisine>
-            <cuisine>Mediterranean</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-      <recipe>
-         <title>Sausage &amp; butternut squash shells</title>
-         <cuisines>
-            <cuisine>Mediterranean</cuisine>
-            <cuisine>Mexican</cuisine>
-         </cuisines>
-         <difficulty>Advanced</difficulty>
-      </recipe>
-      <recipe>
-         <title>Autumn vegetable soup with cheesy toasts</title>
-         <cuisines>
-            <cuisine>Italian</cuisine>
-            <cuisine>Mediterranean</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-      <recipe>
-         <title>Mushroom &amp; sausage pasta</title>
-         <cuisines>
-            <cuisine>Mexican</cuisine>
-            <cuisine>Italian</cuisine>
-         </cuisines>
-         <difficulty>Beginner</difficulty>
-      </recipe>
-      <recipe>
-         <title>Creamy pumpkin &amp; lentil soup</title>
-         <cuisines>
-            <cuisine>French</cuisine>
-            <cuisine>Italian</cuisine>
-         </cuisines>
-         <difficulty>Advanced</difficulty>
-      </recipe>
-      <recipe>
-         <title>Curried parsnip soup</title>
-         <cuisines>
-            <cuisine>Indian</cuisine>
-            <cuisine>Mexican</cuisine>
-         </cuisines>
-         <difficulty>Advanced</difficulty>
-      </recipe>
-      <recipe>
-         <title>Red onion gravy</title>
-         <cuisines>
-            <cuisine>Indian</cuisine>
-            <cuisine>Asian</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-      <recipe>
-         <title>Butternut squash pilaf</title>
-         <cuisines>
-            <cuisine>French</cuisine>
-            <cuisine>Indian</cuisine>
-         </cuisines>
-         <difficulty>Beginner</difficulty>
-      </recipe>
-      <recipe>
-         <title>Sausage &amp; maple swede traybake</title>
-         <cuisines>
-            <cuisine>Asian</cuisine>
-            <cuisine>Indian</cuisine>
-         </cuisines>
-         <difficulty>Beginner</difficulty>
-      </recipe>
-      <recipe>
-         <title>Cauliflower mac &amp; cheese</title>
-         <cuisines>
-            <cuisine>Italian</cuisine>
-            <cuisine>Asian</cuisine>
-         </cuisines>
-         <difficulty>Beginner</difficulty>
-      </recipe>
-      <recipe>
-         <title>Sup de test</title>
-         <cuisines>
-            <cuisine>Romanian</cuisine>
-            <cuisine>French</cuisine>
-         </cuisines>
-         <difficulty>Intermediate</difficulty>
-      </recipe>
-   </recipes>
-<user><name>Alice</name><surname>Smith</surname><skillLevel>Beginner</skillLevel><preferredCuisine>Asian</preferredCuisine></user></data>
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">  <users>
+    <user>
+      <name>John</name>
+      <surname>Doe</surname>
+      <skill>Beginner</skill>
+      <preferredCuisine>Italian</preferredCuisine>
+    </user>
+  </users>
+  <recipes>
+    <recipe>
+      <title>Creamy pumpkin pasta</title>
+      <cuisines>
+        <cuisine>Mediterranean</cuisine>
+        <cuisine>Italian</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Sausage, mustard &amp; apple hash</title>
+      <cuisines>
+        <cuisine>Indian</cuisine>
+        <cuisine>Asian</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Mushroom stroganoff</title>
+      <cuisines>
+        <cuisine>Mexican</cuisine>
+        <cuisine>Italian</cuisine>
+      </cuisines>
+      <difficulty>Beginner</difficulty>
+    </recipe>
+    <recipe>
+      <title>Beetroot &amp; feta pasta</title>
+      <cuisines>
+        <cuisine>Asian</cuisine>
+        <cuisine>Mediterranean</cuisine>
+      </cuisines>
+      <difficulty>Beginner</difficulty>
+    </recipe>
+    <recipe>
+      <title>Pork &amp; apple burgers</title>
+      <cuisines>
+        <cuisine>French</cuisine>
+        <cuisine>Asian</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Mushroom soup</title>
+      <cuisines>
+        <cuisine>Mediterranean</cuisine>
+        <cuisine>Mexican</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Squash &amp; halloumi flatbreads with sweet chilli beetroot jam</title>
+      <cuisines>
+        <cuisine>Asian</cuisine>
+        <cuisine>French</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Simple squash risotto</title>
+      <cuisines>
+        <cuisine>Mediterranean</cuisine>
+        <cuisine>Asian</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Slow cooker spiced root &amp; lentil casserole</title>
+      <cuisines>
+        <cuisine>Asian</cuisine>
+        <cuisine>Italian</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Squash &amp; spinach fusilli with pecans</title>
+      <cuisines>
+        <cuisine>Italian</cuisine>
+        <cuisine>Mediterranean</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Easy vegetable curry</title>
+      <cuisines>
+        <cuisine>Indian</cuisine>
+        <cuisine>Mexican</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Sausage &amp; butternut squash shells</title>
+      <cuisines>
+        <cuisine>Asian</cuisine>
+        <cuisine>Indian</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Autumn vegetable soup with cheesy toasts</title>
+      <cuisines>
+        <cuisine>Mediterranean</cuisine>
+        <cuisine>French</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Mushroom &amp; sausage pasta</title>
+      <cuisines>
+        <cuisine>Asian</cuisine>
+        <cuisine>Mexican</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Creamy pumpkin &amp; lentil soup</title>
+      <cuisines>
+        <cuisine>Asian</cuisine>
+        <cuisine>Italian</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Curried parsnip soup</title>
+      <cuisines>
+        <cuisine>Mexican</cuisine>
+        <cuisine>French</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Red onion gravy</title>
+      <cuisines>
+        <cuisine>Indian</cuisine>
+        <cuisine>Mexican</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+    <recipe>
+      <title>Butternut squash pilaf</title>
+      <cuisines>
+        <cuisine>Mediterranean</cuisine>
+        <cuisine>Italian</cuisine>
+      </cuisines>
+      <difficulty>Beginner</difficulty>
+    </recipe>
+    <recipe>
+      <title>Sausage &amp; maple swede traybake</title>
+      <cuisines>
+        <cuisine>Asian</cuisine>
+        <cuisine>Mexican</cuisine>
+      </cuisines>
+      <difficulty>Advanced</difficulty>
+    </recipe>
+    <recipe>
+      <title>Cauliflower mac &amp; cheese</title>
+      <cuisines>
+        <cuisine>Indian</cuisine>
+        <cuisine>Mediterranean</cuisine>
+      </cuisines>
+      <difficulty>Intermediate</difficulty>
+    </recipe>
+  </recipes>
+</data>
