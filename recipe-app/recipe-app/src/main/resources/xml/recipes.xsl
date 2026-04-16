@@ -2,9 +2,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" indent="yes"/>
 
+    <xsl:param name="targetSkill"/>
     <xsl:template match="/">
-        <xsl:variable name="targetSkill" select="normalize-space(//user[1]/skill)" />
-
         <html>
         <head>
             <title>All Recipes (XSLT View)</title>
@@ -51,7 +50,7 @@
                 </xsl:for-each>
             </table>
             <br/>
-            <a href="/">Back to Home</a>
+            <a href="/recipes">Back to Home</a>
         </body>
         </html>
     </xsl:template>

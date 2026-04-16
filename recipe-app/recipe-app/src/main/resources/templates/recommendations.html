@@ -1,23 +1,72 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Skill-Based Recommendations</title>
+    <title>Skill-Based Recommendations (Task 6)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-    <h2>Recommendations based on First User's Skill Level</h2>
-    
-    <div th:if="${#lists.isEmpty(recommendedRecipes)}">
-        <p>No recipes found matching the user's skill level.</p>
+<body class="container mt-4 bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 rounded shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">HW1 Presentation</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" th:href="@{/}">Dashboard</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Jump to Task</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/recipes}">Task 3 & 9: All Recipes / Details</a></li>
+                        <li><a class="dropdown-item" th:href="@{/add-recipe}">Task 4: Add Recipe</a></li>
+                        <li><a class="dropdown-item" th:href="@{/add-user}">Task 5: Add User</a></li>
+                        <li><a class="dropdown-item" th:href="@{/recommendations/skill}">Task 6: Rec. by Skill</a></li>
+                        <li><a class="dropdown-item" th:href="@{/recommendations/advanced}">Task 7: Rec. by Skill & Cuisine</a></li>
+                        <li><a class="dropdown-item" th:href="@{/select-user-xsl}">Task 8 & 11: XSLT View</a></li>
+                        <li><a class="dropdown-item" th:href="@{/search-cuisine}">Task 10: Filter by Cuisine</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <ul th:if="${not #lists.isEmpty(recommendedRecipes)}">
-        <li th:each="recipe : ${recommendedRecipes}">
-            <strong th:text="${recipe.title}">Recipe Title</strong> 
-            (<span th:text="${recipe.difficulty}">Difficulty</span>)
-        </li>
-    </ul>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-success text-white text-center py-3">
+                <h3 class="mb-0">Task 6: Skill-Based Recommendations</h3>
+                <small>Matching recipes to the first user's cooking skill level</small>
+            </div>
+            <div class="card-body p-4">
 
-    <br>
-    <a href="/">Back to Home</a>
+                <div class="alert alert-warning d-flex align-items-center" th:if="${#lists.isEmpty(recommendedRecipes)}" role="alert">
+                    <div>
+                        <strong>No matches found.</strong> There are currently no recipes that match this user's specific skill level.
+                    </div>
+                </div>
+
+                <div class="list-group" th:if="${not #lists.isEmpty(recommendedRecipes)}">
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" th:each="recipe : ${recommendedRecipes}">
+                        <div>
+                            <h5 class="mb-1 text-primary" th:text="${recipe.title}">Recipe Title</h5>
+                            <small class="text-muted">
+                                Cuisines: <span th:each="c, iterStat : ${recipe.cuisines}" th:text="!${iterStat.last} ? ${c} + ', ' : ${c}"></span>
+                            </small>
+                        </div>
+                        <span class="badge bg-success rounded-pill px-3 py-2" th:text="${recipe.difficulty}">Difficulty</span>
+                    </a>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <a th:href="@{/}" class="btn btn-outline-secondary px-4">Back to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

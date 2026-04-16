@@ -3,6 +3,24 @@
       xsi:noNamespaceSchemaLocation="schema.xsd">
    <users>
       <user>
+         <name>IRI2</name>
+         <surname>IRI2</surname>
+         <skill>Beginner</skill>
+         <preferredCuisine>Asian</preferredCuisine>
+      </user>
+      <user>
+         <name>Iri</name>
+         <surname>Iri</surname>
+         <skill>Advanced</skill>
+         <preferredCuisine>Asian</preferredCuisine>
+      </user>
+      <user>
+         <name>Jane</name>
+         <surname>Jane</surname>
+         <skill>Beginner</skill>
+         <preferredCuisine>Asian</preferredCuisine>
+      </user>
+      <user>
          <name>Ade</name>
          <surname>Smith</surname>
          <skill>Intermediate</skill>
@@ -189,6 +207,30 @@
             <cuisine>Romanian</cuisine>
          </cuisines>
          <difficulty>Intermediate</difficulty>
+      </recipe>
+      <recipe>
+         <title>test</title>
+         <cuisines>
+            <cuisine>Francez</cuisine>
+            <cuisine>Portughez</cuisine>
+         </cuisines>
+         <difficulty>Intermediate</difficulty>
+      </recipe>
+      <recipe>
+         <title>test 2</title>
+         <cuisines>
+            <cuisine>Asian</cuisine>
+            <cuisine>French</cuisine>
+         </cuisines>
+         <difficulty>Intermediate</difficulty>
+      </recipe>
+      <recipe>
+         <title>tes3</title>
+         <cuisines>
+            <cuisine>Asian</cuisine>
+            <cuisine>Asian</cuisine>
+         </cuisines>
+         <difficulty>Beginner</difficulty>
       </recipe>
    </recipes>
 </data>

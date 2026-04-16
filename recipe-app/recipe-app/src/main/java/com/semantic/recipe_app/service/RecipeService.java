@@ -274,19 +274,29 @@ public class RecipeService {
         return recommendedRecipes;
     }
 
-    // Task 8: Generate HTML via XSLT
-    public String generateHtmlFromXsl() {
+   // Task 8 & 11: Generate HTML via XSLT based on a specific user's skill
+    public String generateHtmlFromXsl(String userName) {
         try {
             File xmlFile = new File("src/main/resources/xml/data.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xmlFile);
+            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlFile);
+
+            // Fetch the specific user's skill to pass as a parameter to XSL
+            XPath xPath = XPathFactory.newInstance().newXPath();
+            String skillExpression = "//user[name='" + userName + "']/skill/text()";
+            String targetSkill = (String) xPath.compile(skillExpression).evaluate(doc, XPathConstants.STRING);
+            
+            if (targetSkill == null || targetSkill.isEmpty()) {
+                targetSkill = "Beginner"; // Fallback if user doesn't exist
+            }
 
             File xslFile = new File("src/main/resources/xml/recipes.xsl");
             StreamSource xslSource = new StreamSource(xslFile);
 
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer transformer = factory.newTransformer(xslSource);
+            
+            // Pass the parameter to XSLT (Task 11 specific requirement)
+            transformer.setParameter("targetSkill", targetSkill);
 
             DOMSource xmlDomSource = new DOMSource(doc);
             StringWriter htmlWriter = new StringWriter();
@@ -295,10 +305,71 @@ public class RecipeService {
             transformer.transform(xmlDomSource, result);
 
             return htmlWriter.toString();
-            
         } catch (Exception e) {
             e.printStackTrace();
             return "<h2>Error generating XSLT view. Check the console.</h2>";
         }
+    }
+
+    // Task 9: Get details of a specific recipe using XPath
+    public Recipe getRecipeDetails(String recipeTitle) {
+        try {
+            File xmlFile = new File("src/main/resources/xml/data.xml");
+            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlFile);
+
+            XPath xPath = XPathFactory.newInstance().newXPath();
+            // Using XPath to find the exact recipe by title
+            String expression = "//recipe[title='" + recipeTitle.replace("'", "&apos;") + "']";
+            Node node = (Node) xPath.compile(expression).evaluate(doc, XPathConstants.NODE);
+
+            if (node != null && node.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element) node;
+                String title = element.getElementsByTagName("title").item(0).getTextContent();
+                String difficulty = element.getElementsByTagName("difficulty").item(0).getTextContent();
+                
+                List<String> cuisines = new ArrayList<>();
+                NodeList cuisineNodes = element.getElementsByTagName("cuisine");
+                for (int j = 0; j < cuisineNodes.getLength(); j++) {
+                    cuisines.add(cuisineNodes.item(j).getTextContent());
+                }
+                return new Recipe(title, cuisines, difficulty);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // Task 10: Get recipes by specific cuisine using XPath
+    public List<Recipe> getRecipesByCuisine(String cuisine) {
+        List<Recipe> result = new ArrayList<>();
+        try {
+            File xmlFile = new File("src/main/resources/xml/data.xml");
+            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlFile);
+
+            XPath xPath = XPathFactory.newInstance().newXPath();
+            // XPath to find recipes containing the specified cuisine
+            String expression = "//recipe[cuisines/cuisine='" + cuisine + "']";
+            NodeList recipeNodes = (NodeList) xPath.compile(expression).evaluate(doc, XPathConstants.NODESET);
+
+            for (int i = 0; i < recipeNodes.getLength(); i++) {
+                Node node = recipeNodes.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element) node;
+                    String title = element.getElementsByTagName("title").item(0).getTextContent();
+                    String difficulty = element.getElementsByTagName("difficulty").item(0).getTextContent();
+                    
+                    List<String> cuisinesList = new ArrayList<>();
+                    NodeList cuisineNodes = element.getElementsByTagName("cuisine");
+                    for (int j = 0; j < cuisineNodes.getLength(); j++) {
+                        cuisinesList.add(cuisineNodes.item(j).getTextContent());
+                    }
+                    result.add(new Recipe(title, cuisinesList, difficulty));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Semantic Web HW1 - Presentation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="container mt-4">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 rounded shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">HW1 Presentation</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" th:href="@{/}">Dashboard</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Jump to Task</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/recipes}">Task 3 & 9: All Recipes / Details</a></li>
+                        <li><a class="dropdown-item" th:href="@{/add-recipe}">Task 4: Add Recipe</a></li>
+                        <li><a class="dropdown-item" th:href="@{/add-user}">Task 5: Add User</a></li>
+                        <li><a class="dropdown-item" th:href="@{/recommendations/skill}">Task 6: Rec. by Skill</a></li>
+                        <li><a class="dropdown-item" th:href="@{/recommendations/advanced}">Task 7: Rec. by Skill & Cuisine</a></li>
+                        <li><a class="dropdown-item" th:href="@{/select-user-xsl}">Task 8 & 11: XSLT View</a></li>
+                        <li><a class="dropdown-item" th:href="@{/search-cuisine}">Task 10: Filter by Cuisine</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="p-4 mb-4 bg-light rounded-3 border text-center">
+    <h1 class="display-6 fw-bold text-primary">Semantic Web Project Presentation</h1>
+    <p class="fs-5">Team: JERCĂU Hadasa Ștefana & FINICHIU Eduard Adelin</p>
+</div>
+
+<div class="row g-4 mb-5">
+
+    <div class="col-md-4">
+        <div class="card h-100 border-primary">
+            <div class="card-header bg-primary text-white">Setup & Data Management</div>
+            <div class="card-body">
+                <h6 class="card-title text-muted">Task 1: Data Generation (Scraping)</h6>
+                <p class="card-text small">Automatically scraped 20+ recipes from BBC Good Food using JSoup and saved to XML.</p>
+
+                <h6 class="card-title text-muted">Task 2: Data Validation (XSD)</h6>
+                <p class="card-text small">Created <code>schema.xsd</code> to enforce structure for users and recipes.</p>
+
+                <hr class="my-2">
+
+                <h6 class="card-title text-muted">Task 3: Read & Display</h6>
+                <p class="card-text small">Read recipes from memory and show in UI.</p>
+                <a th:href="@{/recipes}" class="btn btn-outline-primary btn-sm w-100 mb-3">View Tasks 1 & 3 (All Recipes)</a>
+
+                <h6 class="card-title text-muted">Task 4: Form to Add Recipe</h6>
+                <p class="card-text small">Add a recipe to XML (with validation).</p>
+                <a th:href="@{/add-recipe}" class="btn btn-outline-primary btn-sm w-100 mb-3">View Task 4</a>
+
+                <h6 class="card-title text-muted">Task 5: Form to Add User</h6>
+                <p class="card-text small">Insert user data and save to XML.</p>
+                <a th:href="@{/add-user}" class="btn btn-outline-primary btn-sm w-100">View Task 5</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-success">
+            <div class="card-header bg-success text-white">XPath / XQuery Logic</div>
+            <div class="card-body">
+                <h6 class="card-title text-muted">Task 6: Recommend by Skill</h6>
+                <p class="card-text small">Filter recipes based on first user's skill.</p>
+                <a th:href="@{/recommendations/skill}" class="btn btn-outline-success btn-sm w-100 mb-3">View Task 6</a>
+
+                <h6 class="card-title text-muted">Task 7: Recommend by Skill + Cuisine</h6>
+                <p class="card-text small">Filter by both attributes of first user.</p>
+                <a th:href="@{/recommendations/advanced}" class="btn btn-outline-success btn-sm w-100 mb-3">View Task 7</a>
+
+                <h6 class="card-title text-muted">Task 10: Retrieve by Cuisine Type</h6>
+                <p class="card-text small">User selects a cuisine from options.</p>
+                <a th:href="@{/search-cuisine}" class="btn btn-outline-success btn-sm w-100">View Task 10</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-warning">
+            <div class="card-header bg-warning text-dark">UI & XSL Transformations</div>
+            <div class="card-body">
+                <h6 class="card-title text-muted">Task 8 & 11: Display using XSLT</h6>
+                <p class="card-text small">Highlight rows based on dynamically selected user.</p>
+                <a th:href="@{/select-user-xsl}" class="btn btn-outline-warning text-dark btn-sm w-100 mb-3">View Tasks 8 & 11</a>
+
+                <h6 class="card-title text-muted">Task 9: Specific Recipe Details</h6>
+                <p class="card-text small">Filter by XPath to see a single recipe.</p>
+                <a th:href="@{/recipes}" class="btn btn-outline-warning text-dark btn-sm w-100">View Task 9 (Click a title)</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

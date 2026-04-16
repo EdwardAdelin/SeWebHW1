@@ -27,6 +27,12 @@ public class RecipeWebController {
         return "recipes";
     }
 
+    // Home Page Mapping
+    @GetMapping("/")
+    public String showHomePage() {
+        return "index"; // This will look for index.html in the templates folder
+    }
+
     @GetMapping("/add-recipe")
     public String showAddRecipeForm() {
         return "add-recipe"; // This matches the filename add-recipe.html
@@ -90,7 +96,35 @@ public class RecipeWebController {
 // Task 8: XSLT View
     @GetMapping(value = "/recipes-xsl", produces = "text/html")
     @ResponseBody
-    public String viewRecipesViaXsl() {
-        return recipeService.generateHtmlFromXsl();
+    public String viewRecipesViaXsl(@RequestParam(value = "userName", defaultValue = "John") String userName) {
+        return recipeService.generateHtmlFromXsl(userName);
+    }
+
+    // Task 11 UI for Task 8
+    @GetMapping("/select-user-xsl")
+    public String selectUserXsl() {
+        return "select-user-xsl";
+    }
+
+    // Task 9: Recipe Details endpoint
+    @GetMapping("/recipe-details")
+    public String getRecipeDetails(@RequestParam("title") String title, Model model) {
+        Recipe recipe = recipeService.getRecipeDetails(title);
+        model.addAttribute("recipe", recipe);
+        return "recipe-details";
+    }
+
+    // Task 10: Cuisine search form
+    @GetMapping("/search-cuisine")
+    public String searchCuisineForm() {
+        return "search-cuisine";
+    }
+
+    // Task 10: Cuisine search results
+    @GetMapping("/recipes/cuisine")
+    public String recipesByCuisine(@RequestParam("cuisine") String cuisine, Model model) {
+        model.addAttribute("recipes", recipeService.getRecipesByCuisine(cuisine));
+        model.addAttribute("selectedCuisine", cuisine);
+        return "recipes"; // Reusing the existing recipes.html to display results!
     }
 }
