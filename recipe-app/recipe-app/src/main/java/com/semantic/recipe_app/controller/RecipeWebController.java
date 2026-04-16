@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import com.semantic.recipe_app.model.Recipe;
 
+import org.springframework.web.bind.annotation.ResponseBody;
+
 @Controller
 public class RecipeWebController {
 
@@ -83,5 +85,12 @@ public class RecipeWebController {
         
         // We will create a new HTML file for this to keep things organized
         return "recommendations-advanced"; 
+    }
+
+// Task 8: XSLT View
+    @GetMapping(value = "/recipes-xsl", produces = "text/html")
+    @ResponseBody
+    public String viewRecipesViaXsl() {
+        return recipeService.generateHtmlFromXsl();
     }
 }
