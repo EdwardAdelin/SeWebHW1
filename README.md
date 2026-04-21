@@ -14,11 +14,15 @@ Team Members & Contributions
 
 **JERCĂU Hadasa Ștefana**
 
-Backend Logic, XML Scraping (BBC Good Food), XPath/XQuery implementation, XSD Schema design.
+* **Core Data Management (Tasks 3, 4 & 5):** Managed the DOM parsing logic to read data into memory for UI display, and built the interactive forms (with validation) allowing users to add new recipes and user profiles directly into the XML storage.
+* **Recommendation Engine (Tasks 6 & 7):** Wrote the XPath queries to build the recommendation system, filtering recipes based strictly on the user's cooking skill level, as well as providing advanced filtering based on both skill level and preferred cuisine.
+* **XSL Transformations (Task 8):** Implemented the XSLT logic to dynamically render the HTML list of recipes, applying conditional formatting (yellow/green backgrounds) to highlight recipes that match the selected user's profile.
 
 **FINICHIU Eduard Adelin**
 
-UI/UX Design, XSL Transformations, Recipe Data Management operations, Input Validation logic.
+* **Data Generation & Validation (Tasks 1 & 2):** Implemented the automated web scraping logic using JSoup to populate the initial XML database and designed the XSD schema to enforce data validation rules.
+* **Targeted Data Retrieval (Tasks 9 & 10):** Developed the XPath querying logic necessary to filter and display the full details of specific recipes, as well as the functionality to search and retrieve recipes matching a chosen cuisine type.
+* **Frontend & UI Design (Task 11):** Designed the intuitive graphical user interface (GUI) and navigation for the web application, including the specific interface for dynamically selecting users to trigger XSL views.
 
 Key Features
 ---------------
