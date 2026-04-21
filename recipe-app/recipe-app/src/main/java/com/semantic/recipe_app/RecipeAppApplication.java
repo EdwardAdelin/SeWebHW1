@@ -11,7 +11,7 @@ public class RecipeAppApplication {
 		var context = SpringApplication.run(RecipeAppApplication.class, args);
 
 
-		// Uncomment to run scraper and create XML on startup
+		// Scraper and create XML on startup
 		// DataInitializer init = context.getBean(DataInitializer.class);
 		// try {
 		// 	init.scrapeAndSaveData();

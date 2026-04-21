@@ -27,15 +27,14 @@ public class RecipeWebController {
         return "recipes";
     }
 
-    // Home Page Mapping
     @GetMapping("/")
     public String showHomePage() {
-        return "index"; // This will look for index.html in the templates folder
+        return "index"; 
     }
 
     @GetMapping("/add-recipe")
     public String showAddRecipeForm() {
-        return "add-recipe"; // This matches the filename add-recipe.html
+        return "add-recipe"; 
     }
 
     @PostMapping("/add-recipe")
@@ -44,7 +43,7 @@ public class RecipeWebController {
                             @RequestParam String cuisine2,
                             @RequestParam String difficulty) {
 
-        // VALIDATION (Requirement 4)
+        // VALIDATION ( Task 4)
         if (title.trim().isEmpty() || cuisine1.trim().isEmpty() || cuisine2.trim().isEmpty()) {
             return "redirect:/add-recipe?error=missingFields";
         }

@@ -26,7 +26,7 @@ public class DataInitializer {
         List<Recipe> recipes = new ArrayList<>();
         Set<String> seenTitles = new HashSet<>();
 
-        // 1. Scrape titles from BBC Good Food
+        // 1. Scrape
         Document doc = Jsoup.connect("https://www.bbcgoodfood.com/recipes/collection/budget-autumn").get();
         Elements titles = doc.select("h2.heading-4, h4.heading-4, a.link.d-block"); // recipe titles
         System.out.println("Found " + titles.size() + " potential recipe titles. Will select 20 for XML.");
@@ -47,21 +47,21 @@ public class DataInitializer {
             String c2 = CUISINES.get(random.nextInt(CUISINES.size()));
             while (c1.equals(c2)) c2 = CUISINES.get(random.nextInt(CUISINES.size()));
 
-            // random difficulty
+            // random dif.
             String diff = DIFFICULTIES.get(random.nextInt(DIFFICULTIES.size()));
 
             recipes.add(new Recipe(title, Arrays.asList(c1, c2), diff));
         }
 
-        // 2. Create 1 default user
+        // 2. default user
         User defaultUser = new User("John", "Doe", "Beginner", "Italian");
 
-        // 3. Save to XML
+        // 3. Save 
         saveToXml(recipes, defaultUser);
     }
 
     private void saveToXml(List<Recipe> recipes, User user) throws IOException {
-        // This part ensures the directory exists!
+        // ensure the directory exists!
         java.io.File file = new java.io.File(XML_PATH);
         java.io.File parentDir = file.getParentFile();
         if (parentDir != null && !parentDir.exists()) {
