@@ -53,6 +53,27 @@ public class DataInitializer {
             recipes.add(new Recipe(title, Arrays.asList(c1, c2), diff));
         }
 
+        // FALLBACK
+        if (recipes.size() < 20) {
+            int missing = 20 - recipes.size();
+            System.out.println("Could only scrape " + recipes.size() + " recipes. Adding " + missing + " manual recipes to reach 20...");
+            
+            for (int i = 0; i < missing; i++) {
+                // pick 2 distinct cuisines randomly
+                String c1 = CUISINES.get(random.nextInt(CUISINES.size()));
+                String c2 = CUISINES.get(random.nextInt(CUISINES.size()));
+                while (c1.equals(c2)) c2 = CUISINES.get(random.nextInt(CUISINES.size()));
+
+                // random dif.
+                String diff = DIFFICULTIES.get(random.nextInt(DIFFICULTIES.size()));
+
+                // Add a placeholder title
+                String manualTitle = "Manual Recipe " + (i + 1) + " (Fallback)";
+                
+                recipes.add(new Recipe(manualTitle, Arrays.asList(c1, c2), diff));
+            }
+        }
+
         // 2. default user
         User defaultUser = new User("John", "Doe", "Beginner", "Italian");
 
