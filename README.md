@@ -4,7 +4,7 @@ Recipe Recommendation System (Semantic Web Project)
 Project Overview
 ----------------
 
-This is a Java-based web application designed to recommend recipes to users based on their cooking skills and cuisine preferences. The project demonstrates the core principles of the **Semantic Web**, utilizing **XML** for data storage, **XSD** for validation, and **XPath/XQuery/XSL** for data manipulation and presentation.
+This is a Java-based web application designed to recommend recipes to users based on their cooking skills and cuisine preferences. The project demonstrates the core principles of the **Semantic Web**, utilizing **XML** for data storage, **XSD** for validation, and **XPath/XSL** for data manipulation and presentation.
 
 **Public Repository Link:** 
 https://github.com/EdwardAdelin/SeWebHW1.git
@@ -18,7 +18,7 @@ Backend Logic, XML Scraping (BBC Good Food), XPath/XQuery implementation, XSD Sc
 
 **FINICHIU Eduard Adelin**
 
-UI/UX Design, XSL Transformations, Recipe CRUD operations, Input Validation logic.
+UI/UX Design, XSL Transformations, Recipe Data Management operations, Input Validation logic.
 
 Key Features
 ---------------
@@ -27,15 +27,15 @@ Key Features
     
 *   **Smart Recommendations:** \* Filter by **Cooking Skill Level** (XPath).
     
-    *   Filter by **Skill Level + Cuisine Preference** (XQuery).
-        
+    *   Filter by **Skill Level + Cuisine Preference**.
+
 *   **Dynamic UI:** Recipes are rendered via **XSL**.
     
     *   🟩 **Green Background:** General recipes.
         
     *   🟨 **Yellow Background:** Recipes matching your specific skill level.
         
-*   **Data Management:** Full CRUD capability to add recipes and users directly into the XML storage with real-time validation.
+*   **Data Management:** Full Data Management capability to add recipes and users directly into the XML storage with real-time validation.
     
 *   **Detailed View:** Specific recipe lookup using filtered XPath queries.
     
@@ -49,7 +49,7 @@ Tech Stack
     
 *   **Validation:** XSD (XML Schema Definition)
     
-*   **Querying:** XPath & XQuery
+*   **Querying:** XPath 
     
 *   **Styling/Transformation:** XSL (Extensible Stylesheet Language)
     
@@ -79,7 +79,7 @@ Grading Checklist (Internal Reference)
     
 *   \[ \] Recipe & User Addition Forms (1.5 pts)
     
-*   \[ \] XPath/XQuery Recommendation Logic (2.0 pts)
+*   \[ \] XPath Recommendation Logic (2.0 pts)
     
 *   \[ \] Filter by Cuisine & Detailed View (2.0 pts)
     
